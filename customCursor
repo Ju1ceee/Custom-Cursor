@@ -1,0 +1,43 @@
+<style>
+  * {
+    cursor: none !important;
+  }
+
+  #custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cursor = document.getElementById("custom-cursor");
+
+    // Додаємо плавну анімацію для зміни розміру курсора
+    cursor.style.transition = "width 0.2s ease, height 0.2s ease";
+
+    document.addEventListener("mousemove", function (e) {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    // Додаємо функціонал для збільшення курсора при наведенні на елементи з класом "hover-target"
+    const hoverElements = document.querySelectorAll('.hover-target');
+
+    hoverElements.forEach(function(el) {
+      el.addEventListener('mouseenter', function () {
+        cursor.style.width = "2rem";
+        cursor.style.height = "2rem";
+      });
+      el.addEventListener('mouseleave', function () {
+        cursor.style.width = "1.2rem";
+        cursor.style.height = "1.2rem";
+      });
+    });
+  });
+</script>
