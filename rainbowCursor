@@ -1,0 +1,16 @@
+<!-- Підключення бібліотеки -->
+<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+
+<!-- Ініціалізація райдужного курсора для ПК версії -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Перевірка, чи ширина вікна більше 1024 пікселів (ПК версія)
+    if (window.innerWidth > 1024) {
+      const cursor = new cursoreffects.rainbowCursor({
+        length: 15, // довжина райдужного сліду
+        size: 6,    // товщина сліду
+        colors: ['#53F78B', '#C8C8C8', '#53F78B'] // кастомні кольори
+      });
+    }
+  });
+</script>
